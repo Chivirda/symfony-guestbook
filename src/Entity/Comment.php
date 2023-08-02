@@ -33,7 +33,7 @@ class Comment
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $photoFilename = null;
 
-    function __toString() : string {
+    public function __toString() : string {
         return (string) $this->getEmail();
     }
 
