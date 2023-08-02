@@ -34,7 +34,7 @@ class Comment
     private ?string $photoFilename = null;
 
     function __toString() : string {
-        retutn (string) $this->getEmail();
+        return (string) $this->getEmail();
     }
 
     public function getId(): ?int
