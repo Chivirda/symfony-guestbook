@@ -20,12 +20,12 @@ class CommentCrudController extends AbstractCrudController
         return Comment::class;
     }
 
-    public function configureCrud(Crud $crud) : Crud {
+    public function configureCrud(Crud $crud) : Crud
+    {
         return $crud
             ->setEntityLabelInSingular('Conference Comment')
             ->setEntityLabelInPlural('Conference Comment')
-            ->setSearchFields(['author', 'text', 'email'])
-        ;
+            ->setSearchFields(['author', 'text', 'email']);
     }
 
     public function configureFields(string $pageName): iterable
@@ -34,15 +34,15 @@ class CommentCrudController extends AbstractCrudController
         yield TextField::new('author');
         yield EmailField::new('email');
         yield TextareaField::new('text')
-            ->hideOnIndex()
-        ;
+            ->hideOnIndex();
         yield TextField::new('photoFileName')
-            ->onlyOnIndex()
-        ;
-        $createdAt = DateTimeField::new('createdAt')->setFormTypeOptions([
+            ->onlyOnIndex();
+        $createdAt = DateTimeField::new('createdAt')->setFormTypeOptions(
+            [
             'years' => range(date('Y'), date('Y') + 5),
             'widget' => 'single_text',
-        ]);
+            ]
+        );
         if (Crud::PAGE_EDIT === $pageName) {
             yield $createdAt->setFormTypeOptions('disabled', true);
         } else {
