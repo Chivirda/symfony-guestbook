@@ -77,12 +77,14 @@
             "cache:clear": "symfony-cmd",
             "assets:install %PUBLIC_DIR%": "symfony-cmd"
         },
+        "dev": "symfony server:start -d && docker-compose up -d",
         "post-install-cmd": [
             "@auto-scripts"
         ],
         "post-update-cmd": [
             "@auto-scripts"
-        ]
+        ],
+        "stop": "symfony server:stop && docker-compose down"
     },
     "conflict": {
         "symfony/symfony": "*"
