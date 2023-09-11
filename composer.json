@@ -81,7 +81,7 @@
             "cache:clear": "symfony-cmd",
             "assets:install %PUBLIC_DIR%": "symfony-cmd"
         },
-        "dev": "symfony server:start -d && docker-compose up -d && symfony run -d --watch=config,src,templates,vendor symfony console messenger:consume async",
+        "dev": "symfony server:start -d && docker-compose up -d && symfony run -d --watch=config,src,templates,vendor symfony console messenger:consume async && symfony run -d npm run watch",
         "post-install-cmd": [
             "@auto-scripts"
         ],
